@@ -30,7 +30,13 @@ AppAsset::register($this);
 <div class="wrap">
     <?= HeaderWidget::widget(); ?>
 
+
     <div class="container">
+        <?php
+        if(Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'search'){
+            echo \frontend\widgets\SearchWidget::widget();
+        }
+        ?>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

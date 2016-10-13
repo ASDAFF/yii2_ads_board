@@ -66,30 +66,6 @@ class SiteController extends Controller
         return Yii::$app->getResponse()->redirect(['/adsense/index']);
     }
 
-    public function actionAdsense(){
-        $adsense = new Adsense();
-        $category = new Category();
-        //$list = $category::find()->all();
-        $list = $adsense->getAdsenseList();
-
-        $pagination = new Pagination(
-            [
-                'defaultPageSize' => 2,
-                'totalCount' => $list->count(),
-            ]
-        );
-
-        $list = $list
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-
-        return $this->render('adsense',
-        [
-            'list' => $list,
-        ]);
-    }
-
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {

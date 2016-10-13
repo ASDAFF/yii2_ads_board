@@ -1,14 +1,15 @@
 <?php
+use yii\helpers\Html;
 use yii\bootstrap\NavBar;
 use yii\bootstrap\Nav;
-
 NavBar::begin([
     'brandLabel' => 'Доска объявлений',
     'brandUrl' => Yii::$app->homeUrl,
 ]);
 $menuItems = [
-    ['label' => 'Мой профиль', 'url' => ['/profile/index']],
-    ['label' => 'Добавить объявление', 'url' => ['/profile/add']],
+    ['label' => 'Категории', 'url' => ['/adsense/category-list']],
+    ['label' => 'Мои объявления', 'url' => ['/profile/my-adsense']],
+    ['label' => 'Добавить объявление', 'url' => ['/profile/add-adsense']],
     ['label' => 'Избранное', 'url' => ['/profile/favorite']],
 ];
 if (Yii::$app->user->isGuest) {
