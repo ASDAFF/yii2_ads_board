@@ -6,7 +6,12 @@ use common\models\City;
 use common\models\Category;
 ?>
 <?php // Задать свойство по умолчанию можно 'checked ' но нельзя 'ckecked' для chekbox ??? ?>
+
 <div class="row">
+    <div id="search-btn">
+        <h6>Поиск</h6>
+    </div>
+    <div id="search">
     <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
     <div class="row">
         <div class="col-md-3 col-sm-4 col-md-offset-1 col-sm-offset-1">
@@ -51,4 +56,5 @@ use common\models\Category;
         </div>
     </div>
     <?php ActiveForm::end(); ?>
+    </div>
 </div>

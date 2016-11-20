@@ -41,7 +41,7 @@ class AdsenseForm extends Adsense{
             foreach($this->img_list as $file){
                 $img = new Image();
                 $file->saveAs($dir . $file->baseName . '.' . $file->extension);
-                $img->path = $file->baseName . '.' . $file->extension;
+                $img->path = Yii::$app->user->id. '/' . $file->baseName . '.' . $file->extension;
                 $img->ads_id = $adsense_id;
                 $img->is_preview = 0;
                 $img->save();
@@ -62,8 +62,6 @@ class AdsenseForm extends Adsense{
             $img->ads_id = $adsense_id;
             $img->is_preview = 1;
             $img->save();
-
-
         }
     }
 }

@@ -16,7 +16,12 @@ use yii\helpers\Url;
                 <br>
                 Автор: <?= $adsense->user_name; ?>
             </small>
-            <?= BaseHtml::img('@web/img/' . $adsense->preview_img, ['class' => 'img-responsive']); ?>
+            <?php if(!empty($adsense->images)){
+                foreach($adsense->images as $img){
+                echo BaseHtml::img('@web/img/' . $img->path, ['width' => 600, 'height' => 600, 'class' => 'img-responsive']);
+                }
+            }
+            ?>
             <p><?= $adsense->description; ?></p>
         </div>
     </div>

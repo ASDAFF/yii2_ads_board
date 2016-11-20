@@ -49,20 +49,6 @@ class ProfileController extends Controller{
         $user_id = Yii::$app->user->id;
         $list = $adsense->getAdsenseListByUserId($user_id);
 
-        /*
-        $pagination = new Pagination(
-            [
-                'defaultPageSize' => 10,
-                'totalCount' => $list->count(),
-            ]
-        );
-
-        $list = $list
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-        */
-
         return $this->render('my-adsense',[
             'dataProvider' => $list,
         ]);

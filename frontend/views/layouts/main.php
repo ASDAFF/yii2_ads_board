@@ -11,8 +11,8 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 use frontend\widgets\HeaderWidget;
-
-AppAsset::register($this);
+use frontend\widgets\CategoryWidget;
+$this->registerCssFile('css/site.css');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -32,6 +32,7 @@ AppAsset::register($this);
 
 
     <div class="container">
+        <?= CategoryWidget::widget(); ?>
         <?php
         if(Yii::$app->controller->action->id == 'index' || Yii::$app->controller->action->id == 'search'){
             echo \frontend\widgets\SearchWidget::widget();
@@ -53,7 +54,9 @@ AppAsset::register($this);
     </div>
 </footer>
 
+
 <?php $this->endBody() ?>
 </body>
+<?php $this->registerJsFile('js/main.js'); ?>
 </html>
 <?php $this->endPage() ?>

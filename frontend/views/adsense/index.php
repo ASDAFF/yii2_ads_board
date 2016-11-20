@@ -4,6 +4,7 @@ use yii\widgets\LinkPager;
 $this->title = 'Список объявлений';
 $this->params['breadcrumbs'][] = $this->title;
 //var_dump($list);
+
 ?>
 <div class="row">
     <div class="col-md-9 col-sm-9 col-xs-12">

@@ -109,3 +109,19 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+
+/* search and category  */
+#category-btn{
+    background: #31b0d5;
+    text-align: center;
+}
+#category-btn h6{
+    font-size: 22px;
+}
+#search-btn{
+    background: #31b0d5;
+    text-align: center;
+}
+#search-btn h6{
+    font-size: 22px;
+}

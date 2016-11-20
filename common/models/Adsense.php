@@ -18,7 +18,7 @@ class Adsense extends ActiveRecord{
     public $category;
     public $preview_img;
     public $ads_url;
-
+    public $detail_imgs = array();
     public $city_check;
 
     public static function tableName() {
@@ -29,6 +29,23 @@ class Adsense extends ActiveRecord{
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
    }
 
+    public function getUserInfo(){
+        return $this->hasOne(UserInfo::className(), ['id' => 'user_id']);
+    }
+
+    public function getCity(){
+        return $this->hasOne(City::className(), ['id' => 'city_id']);
+    }
+
+    public function getImage(){
+        return $this->hasOne(Image::className(), ['ads_id' => 'id']);
+    }
+    public function getImages(){
+        return $this->hasMany(Image::className(), ['ads_id' => 'id']);
+    }
+    public function getFavorite(){
+        return $this->hasMany(Favorite::className(), ['ads_id' => 'id']);
+    }
     /*
     public function rules(){
         return[
@@ -46,26 +63,6 @@ class Adsense extends ActiveRecord{
         ];
     }
 
-    /*
-    public function getUser(){
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
-    }
-    */
-    public function getUserInfo(){
-        return $this->hasOne(UserInfo::className(), ['id' => 'user_id']);
-    }
-
-    public function getCity(){
-        return $this->hasOne(City::className(), ['id' => 'city_id']);
-    }
-
-    public function getImage(){
-        return $this->hasOne(Image::className(), ['ads_id' => 'id']);
-    }
-    public function getFavorite(){
-        return $this->hasMany(Favorite::className(), ['ads_id' => 'id']);
-    }
-
 
     public function getAdsenseList(){
 
@@ -78,11 +75,11 @@ class Adsense extends ActiveRecord{
 
     public function getAdsense($id){
         return Adsense::find()
-            ->joinWith(['userInfo','category','image','city'])
+            ->joinWith(['userInfo','category','image','city','images'])
             ->select(['adsense.title', 'adsense.state', 'adsense.cost', 'adsense.date_publish', 'adsense.id',
             'user_name' => 'user_info.contact_name', 'city' => 'city.name', 'category' => 'category.name',
             'preview_img' => 'images.path', 'telephon_number' => 'user_info.telephon_number',
-            'user_skype' => 'user_info.skype', 'adsense.description'])
+            'user_skype' => 'user_info.skype', 'adsense.description', ])
             ->where(['adsense.id' => $id])
             ->one();
     }
