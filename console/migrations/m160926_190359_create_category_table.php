@@ -16,6 +16,7 @@ class m160926_190359_create_category_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
             'nesting_lvl' => $this->integer()->notNull(),
+            'parent_id' => $this->integer()->notNull(),
         ]);
     }
 

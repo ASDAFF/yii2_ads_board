@@ -16,6 +16,7 @@ class m160926_190500_create_images_table extends Migration
             'id' => $this->primaryKey(),
             'path' => $this->string()->notNull(),
             'ads_id' => $this->integer()->notNull(),
+            'is_preview' => $this->integer()->notNull(),
         ]);
     }
 

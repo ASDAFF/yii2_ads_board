@@ -2,23 +2,20 @@
 
 use yii\db\Migration;
 
-class m161018_134837_user_info extends Migration
+class m161120_172951_favorite extends Migration
 {
     public function up()
     {
         $this->createTable('',[
             'id' => $this->primaryKey(),
-            'contact_name' => $this->string()->notNull(),
-            'city_id' => $this->string(32)->notNull(),
-            'telephon_number' => $this->string(20)->notNull(),
-            'skype' => $this->string(),
+            'ads_id' => $this->integer()->notNull(),
+            'user_id' => $this->integer()->notNull(),
         ]);
-
     }
 
     public function down()
     {
-        echo "m161018_134837_user_info cannot be reverted.\n";
+        echo "m161120_172951_favorite cannot be reverted.\n";
 
         return false;
     }
